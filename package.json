@@ -1,0 +1,29 @@
+{
+  "name": "calculator-tdd-backend",
+  "version": "1.0.0",
+  "description": "calculator tdd backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KAYDEEP/calculator-tdd-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KAYDEEP/calculator-tdd-backend/issues"
+  },
+  "homepage": "https://github.com/KAYDEEP/calculator-tdd-backend#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
