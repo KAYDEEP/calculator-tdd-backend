@@ -3,17 +3,23 @@ function add(numbers) {
 
     let delimiter = ",";
     if (numbers.startsWith("//")) {
-        const parts = numbers.split("\n");
-        delimiter = parts[0].slice(2); // Extract custom delimiter
-        numbers = parts[1]; // Remaining part after custom delimiter
+        const [header, body] = numbers.split("\n", 2);
+        delimiter = header.slice(2);
+        numbers = body;
     }
 
     const nums = numbers
-        .replace(/\n/g, delimiter) // Replace newline with custom delimiter
-        .split(delimiter)
+        .split(new RegExp(`[${delimiter}\n]`))
         .map(Number);
+
+    const negatives = nums.filter((num) => num < 0);
+    if (negatives.length) {
+        throw new Error(`Negatives not allowed: ${negatives.join(", ")}`);
+    }
+
     return nums.reduce((sum, num) => sum + num, 0);
 }
+
 
 
 module.exports = { add };
