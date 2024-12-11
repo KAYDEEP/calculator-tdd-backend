@@ -9,7 +9,12 @@
       {
         "url": "http://localhost:3000",
         "description": "Local server"
+      },
+      {
+        "url": "https://calculator-tdd-backend.vercel.app/",
+        "description": "Production server"
       }
+      
     ],
     "paths": {
       "/add": {
