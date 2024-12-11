@@ -1,5 +1,6 @@
 function add(numbers) {
-    return 0; // Simplest implementation for passing the test
+    if (numbers === "") return 0;
+    return parseInt(numbers);
 }
 
 module.exports = { add };
