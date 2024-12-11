@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "String Calculator API",
+      "version": "1.0.0",
+      "description": "A simple API for adding numbers, with support for custom delimiters and error handling."
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "description": "Local server"
+      }
+    ],
+    "paths": {
+      "/add": {
+        "post": {
+          "summary": "Add Numbers",
+          "description": "Accepts a string of numbers and returns the sum. Supports comma, newline, and custom delimiters.",
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "numbers": {
+                      "type": "string",
+                      "example": "1,2,3"
+                    }
+                  },
+                  "required": ["numbers"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Successful addition",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "result": {
+                        "type": "integer",
+                        "example": 6
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request - Invalid input or negative numbers",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "error": {
+                        "type": "string",
+                        "example": "Negative numbers not allowed: -1, -5"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
